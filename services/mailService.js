@@ -1,22 +1,8 @@
 import nodemailer from "nodemailer";
 import { SMTP_HOST, SMTP_PORT } from "../constants/constant.js";
 class MailService {
-  constructor() {
-    this.data = {
-      host: SMTP_HOST,
-      port: SMTP_PORT,
-      secure: false,
-      auth: {
-        user: "olakovalisko@gmail.com",
-        pass: "pscphohsnrtcuyrm",
-      },
-    };
-
-    this.transporter = nodemailer.createTransport(this.data);
-  }
 
   async sendActivationMail(to, link) {
-    console.log(process.env.SMTP_HOST, SMTP_PORT);
     const options = {
       host: process.env.SMTP_HOST,
       port: process.env.SMTP_PORT,
